@@ -9,6 +9,7 @@ Project Structure
 Exception Handling
 System Requirements
 Contributing
+
 ✨ Features
 Core Functionality
 Student Management: Add new students with first and last names
@@ -27,6 +28,7 @@ Error Recovery: Smart retry loops allow users to correct mistakes immediately
 Clear Error Messages: Detailed feedback helps users understand and fix input errors
 Persistent Data: Student records persist throughout the session
 Intuitive Menu System: Easy-to-navigate console interface
+
 🚀 Getting Started
 Prerequisites
 Java Development Kit (JDK) 8 or higher
