@@ -11,6 +11,13 @@ public class Student {
   private int numberOfTests = 0;
 
   // Constructor
+  public Student(int tempId) {
+    this.studentId = tempId;
+    this.firstName = "";
+    this.lastName = "";
+    this.grades = new ArrayList<Double>();
+    this.numberOfTests = grades.size();
+  }
   public Student(String firstName, String lastName) {
     this.studentId = Math.abs(new Random().nextInt());
     this.firstName = firstName;
@@ -18,6 +25,7 @@ public class Student {
     this.grades = new ArrayList<Double>();
     this.numberOfTests = grades.size();
   }
+  
 
   // getters
   public int getStudentId() {
@@ -32,34 +40,42 @@ public class Student {
     return lastName;
   }
   public String toString(){
-    return "Student ID: " + studentId + "\nFirst Name: " + firstName + "\nLast Name: " + lastName;
+    return "Student ID: " + studentId + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nNumber of Tests: " + numberOfTests + "\nGrades: " + grades;
   }
 
   // add test score to array
   public void addTestScore(double score) {
     grades.add(score);
+    numberOfTests = grades.size();
     System.out.println("Test Score Added Successfully");
   }
 
   // remove test score from array
   public void removeTestScore(double score) {
     grades.remove(score);
+    numberOfTests = grades.size();
     System.out.println("Test Score Removed Successfully");
   }
 
   // get average of all test scores
   public double getAverageTestScore() {
+    if (grades.isEmpty()) {
+      return 0.0;
+    }
     double sum = 0;
-    for (int i = 0; i < numberOfTests; i++) {
+    for (int i = 0; i < grades.size(); i++) {
       sum += grades.get(i);
     }
-    return (sum / numberOfTests);
+    return (sum / grades.size());
   }
 
   // return the highest test score
   public double getHighestTestScore() {
-    double highest = 0;
-    for (int i = 0; i < numberOfTests; i++) {
+    if (grades.isEmpty()) {
+      return 0.0;
+    }
+    double highest = grades.get(0);
+    for (int i = 1; i < grades.size(); i++) {
       if (grades.get(i) > highest) {
         highest = grades.get(i);
       }
